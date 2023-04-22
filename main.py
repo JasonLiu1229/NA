@@ -1,16 +1,15 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from Population_growth import *
+import matplotlib.pyplot as plt
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    # Verkrijg een grafiek van N(1) als functie van λ ∈ (0, 1]
+    pop = population_growth(1)
+    y, x = pop.calculate(0, 1, False, interval=0.1)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    plt.plot(x, y)
+    plt.xlabel('x - axis')
+    plt.ylabel('y - axis')
+    plt.title('Population growth')
+    plt.show()
+

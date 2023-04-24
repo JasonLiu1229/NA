@@ -13,6 +13,11 @@ class population_growth:
         return self.N0 * pow(math.e, self.t * self.lm) + self.v * (
                 (pow(math.e, self.t * self.lm) - 1) / self.lm)
 
+    def function_cal_newton(self, in_lm):
+        self.lm = in_lm
+        return self.N0 * pow(math.e, self.t * self.lm) + self.v * (
+                (pow(math.e, self.t * self.lm) - 1) / self.lm) - 1264000
+
     def calculate(self, begin: int or float, end: int or float, left_bracket: bool = True, right_bracket: bool = True,
                   interval: float or int = 1):
         """
@@ -36,7 +41,7 @@ class population_growth:
                 continue
             if not right_bracket and current_val >= end:
                 setting = False
-            print("lambda = " + str(current_val) + ", output = " + str(self.function_cal(current_val)))
+            # print("lambda = " + str(current_val) + ", output = " + str(self.function_cal(current_val)))
             calculated_vals.append(self.function_cal(current_val))
             input_vals.append(current_val)
             current_val += interval
@@ -69,5 +74,5 @@ class population_growth:
             else:
                 return out_x
 
-            cal_x = cal_x - (self.function_cal(cal_x) / self.derivative(cal_x))
+            cal_x = cal_x - (self.function_cal_newton(cal_x) / self.derivative(cal_x))
             cal_val = self.function_cal(cal_x)

@@ -14,4 +14,6 @@ if __name__ == '__main__':
     plt.show()
 
     # b startwaarde = 0.21
-    print(pop.Newton(0.21, 1264000))
+    print(pop.Newton(20, 1264000))
+
+    # c

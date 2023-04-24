@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 if __name__ == '__main__':
-    # Verkrijg een grafiek van N(1) als functie van λ ∈ (0, 1]
+    # a Verkrijg een grafiek van N(1) als functie van λ ∈ (0, 1]
     pop = population_growth(1)
     y, x = pop.calculate(0, 1, False, interval=0.01)
 
@@ -14,6 +14,6 @@ if __name__ == '__main__':
     plt.show()
 
     # b startwaarde = 0.21
-    print(pop.Newton(20, 1264000))
+    print(pop.Newton(0.21, 1264000))
 
     # c

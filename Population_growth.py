@@ -13,10 +13,10 @@ class population_growth:
         return self.N0 * pow(math.e, self.t * self.lm) + self.v * (
                 (pow(math.e, self.t * self.lm) - 1) / self.lm)
 
-    def function_cal_newton(self, in_lm):
+    def function_cal_newton(self, in_lm, value):
         self.lm = in_lm
         return self.N0 * pow(math.e, self.t * self.lm) + self.v * (
-                (pow(math.e, self.t * self.lm) - 1) / self.lm) - 1264000
+                (pow(math.e, self.t * self.lm) - 1) / self.lm) - value
 
     def calculate(self, begin: int or float, end: int or float, left_bracket: bool = True, right_bracket: bool = True,
                   interval: float or int = 1):
@@ -74,5 +74,5 @@ class population_growth:
             else:
                 return out_x
 
-            cal_x = cal_x - (self.function_cal_newton(cal_x) / self.derivative(cal_x))
+            cal_x = cal_x - (self.function_cal_newton(cal_x, end_value) / self.derivative(cal_x))
             cal_val = self.function_cal(cal_x)
